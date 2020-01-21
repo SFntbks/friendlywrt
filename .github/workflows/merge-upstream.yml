@@ -9,9 +9,12 @@
 name: Merge-upstream
 
 on:
+  watch:
+    types:
+      - 'started'
   push:
     paths:
-      - - '.github/workflows/merge-upstream.yml'
+      - '.github/workflows/merge-upstream.yml'
   schedule:
     - cron: 30 19 * * *
 
