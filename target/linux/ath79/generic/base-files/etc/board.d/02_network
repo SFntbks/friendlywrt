@@ -40,7 +40,7 @@ ath79_setup_interfaces()
 	tplink,re450-v1|\
 	tplink,re450-v2|\
 	tplink,tl-wr902ac-v1|\
-	ubnt,bullet-m|\
+	ubnt,bullet-m-ar7241|\
 	ubnt,bullet-m-xw|\
 	ubnt,lap-120|\
 	ubnt,litebeam-ac-gen2|\
@@ -81,6 +81,7 @@ ath79_setup_interfaces()
 	tplink,archer-c25-v1|\
 	tplink,archer-c60-v1|\
 	tplink,archer-c60-v2|\
+	tplink,archer-c60-v3|\
 	tplink,tl-wdr3500-v1|\
 	tplink,tl-wr842n-v1|\
 	tplink,tl-wr842n-v3|\
@@ -440,7 +441,7 @@ ath79_setup_macs()
 		label_mac=$wan_mac
 		;;
 	ubnt,airrouter|\
-	ubnt,bullet-m|\
+	ubnt,bullet-m-ar7241|\
 	ubnt,nanostation-loco-m|\
 	ubnt,nanostation-m|\
 	ubnt,picostation-m|\
