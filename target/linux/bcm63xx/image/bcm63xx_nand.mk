@@ -51,3 +51,37 @@ define Device/comtrend_vr-3032u
   CFE_WFI_FLASH_TYPE := 3
 endef
 TARGET_DEVICES += comtrend_vr-3032u
+
+define Device/comtrend_vg-8050
+  $(Device/bcm63xx-nand)
+  DEVICE_VENDOR := Comtrend
+  DEVICE_MODEL := VG-8050
+  CFE_CHIP_ID := 63268
+  SOC := bcm63169
+  CFE_RAM_FILE := comtrend,vg-8050/cferam.000
+  CFE_RAM_JFFS2_NAME := cferam.000
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  SUBPAGESIZE := 512
+  VID_HDR_OFFSET := 2048
+  DEVICE_PACKAGES += $(USB2_PACKAGES)
+  CFE_WFI_FLASH_TYPE := 3
+endef
+TARGET_DEVICES += comtrend_vg-8050
+
+### Netgear ###
+define Device/netgear_dgnd3700-v2
+  $(Device/bcm63xx-nand)
+  DEVICE_VENDOR := NETGEAR
+  DEVICE_MODEL := DGND3700
+  DEVICE_VARIANT := v2
+  CFE_CHIP_ID := 6362
+  CFE_RAM_FILE := netgear,dgnd3700-v2/cferam
+  CFE_RAM_JFFS2_NAME := cferam
+  CFE_RAM_JFFS2_PAD := 496k
+  BLOCKSIZE := 16k
+  PAGESIZE := 512
+  DEVICE_PACKAGES += $(B43_PACKAGES) $(USB2_PACKAGES)
+  CFE_WFI_FLASH_TYPE := 2
+endef
+TARGET_DEVICES += netgear_dgnd3700-v2
