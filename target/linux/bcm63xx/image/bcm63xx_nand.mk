@@ -28,7 +28,7 @@ define Device/bcm63xx-nand
   CFE_RAM_FILE :=
   CFE_RAM_JFFS2_NAME :=
   CFE_RAM_JFFS2_PAD :=
-  CFE_WFI_VERSION := 0x5731
+  CFE_WFI_VERSION :=
   CFE_WFI_CHIP_ID = 0x$$(CHIP_ID)
   CFE_WFI_FLASH_TYPE :=
   CFE_WFI_FLAGS :=
@@ -46,23 +46,6 @@ define Device/sercomm-nand
 endef
 
 ### Comtrend ###
-define Device/comtrend_vr-3032u
-  $(Device/bcm63xx-nand)
-  DEVICE_VENDOR := Comtrend
-  DEVICE_MODEL := VR-3032u
-  CHIP_ID := 63268
-  SOC := bcm63168
-  CFE_RAM_FILE := comtrend,vr-3032u/cferam.000
-  CFE_RAM_JFFS2_NAME := cferam.000
-  BLOCKSIZE := 128k
-  PAGESIZE := 2048
-  SUBPAGESIZE := 512
-  VID_HDR_OFFSET := 2048
-  DEVICE_PACKAGES += $(USB2_PACKAGES)
-  CFE_WFI_FLASH_TYPE := 3
-endef
-TARGET_DEVICES += comtrend_vr-3032u
-
 define Device/comtrend_vg-8050
   $(Device/bcm63xx-nand)
   DEVICE_VENDOR := Comtrend
@@ -76,9 +59,28 @@ define Device/comtrend_vg-8050
   SUBPAGESIZE := 512
   VID_HDR_OFFSET := 2048
   DEVICE_PACKAGES += $(USB2_PACKAGES)
+  CFE_WFI_VERSION := 0x5732
   CFE_WFI_FLASH_TYPE := 3
 endef
 TARGET_DEVICES += comtrend_vg-8050
+
+define Device/comtrend_vr-3032u
+  $(Device/bcm63xx-nand)
+  DEVICE_VENDOR := Comtrend
+  DEVICE_MODEL := VR-3032u
+  CHIP_ID := 63268
+  SOC := bcm63168
+  CFE_RAM_FILE := comtrend,vr-3032u/cferam.000
+  CFE_RAM_JFFS2_NAME := cferam.000
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  SUBPAGESIZE := 512
+  VID_HDR_OFFSET := 2048
+  DEVICE_PACKAGES += $(USB2_PACKAGES)
+  CFE_WFI_VERSION := 0x5732
+  CFE_WFI_FLASH_TYPE := 3
+endef
+TARGET_DEVICES += comtrend_vr-3032u
 
 ### Huawei ###
 define Device/huawei_hg253s-v2
@@ -115,6 +117,7 @@ define Device/netgear_dgnd3700-v2
   BLOCKSIZE := 16k
   PAGESIZE := 512
   DEVICE_PACKAGES += $(B43_PACKAGES) $(USB2_PACKAGES)
+  CFE_WFI_VERSION := 0x5731
   CFE_WFI_FLASH_TYPE := 2
 endef
 TARGET_DEVICES += netgear_dgnd3700-v2
@@ -134,6 +137,7 @@ define Device/sercomm_ad1018
   VID_HDR_OFFSET := 2048
   DEVICE_PACKAGES += $(B43_PACKAGES) $(USB2_PACKAGES)
   CFE_WFI_FLASH_TYPE := 3
+  CFE_WFI_VERSION := 0x5731
   SERCOMM_PID := \
     30 30 30 30 30 30 30 31 34 31 35 31 35 33 30 30 \
     30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 \
